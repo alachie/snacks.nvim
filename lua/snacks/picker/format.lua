@@ -61,7 +61,9 @@ function M.filename(item, picker)
       fallback = picker.opts.icons.files,
     })
     if item.dir and item.open then
-      icon = picker.opts.icons.files.dir_open
+      if icon == picker.opts.icons.files.dir then
+        icon = picker.opts.icons.files.dir_open
+      end
     end
     icon = Snacks.picker.util.align(icon, picker.opts.formatters.file.icon_width or 2)
     ret[#ret + 1] = { icon, hl, virtual = true }
